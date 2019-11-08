@@ -1,17 +1,20 @@
 from vimonous import Vimonous as v
+import sys
+
+#main.py is mainly for use in scripts
+
+HELP_MSG="""Vimonous -> github.com/dosisod/vimonous
+
+Usage: main.py FILENAME "normal mode commands"
+
+FILENAME is automatically saved after commands are typed"""
 
 if __name__=="__main__":
-	parser=v("filetoparse.txt")
+	if len(sys.argv)>1:	
+		parser=v(
+			sys.argv[1], #file name for file
+			" ".join(sys.argv[2:]) #data to put into file
+		)
 
-	parser.add("Gddodeleted text at bottom, added this line")
-	parser.run()
-
-	exit(0) #stops from below code from running
-
-	#code could also be written as follows:
-	parser=v("filetoparse.txt")
-	parser + "Gddodeleted text at bottom, added this line 1"
-	parser()
-
-	#or like:
-	v("filetoparse.txt", "Gddodeleted text at bottom, added this line")
+	else:
+		print(HELP_MSG)
