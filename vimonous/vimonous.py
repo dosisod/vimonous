@@ -25,6 +25,10 @@ class Vimonous:
 		#when true (default), the file will be auto saved when ran
 		self.autosave=autosave
 
+		#if constructor called with data set, auto run and save that data
+		if self.inject:
+			self.run()
+
 	#given a filename, create the string to quit and save
 	def save(self, filen: str=None) -> Union[str]:
 		if filen:
@@ -52,7 +56,6 @@ class Vimonous:
 				self.add(self.save())
 
 			f.write(self.inject)
-			print(self.inject)
 
 		#open vim and save file
 		sub.call([
