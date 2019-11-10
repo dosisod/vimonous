@@ -51,3 +51,7 @@ Now, you can do the following in bash scripts:
 
 vimonous "filename" $'/hello\ncawhi!'
 ```
+
+When using an alias for `vimonous`, scripts must be ran in interactive mode with `bash -i name.sh`.
+
+If the direct path to vimonous is used instead, then this step is not needed.
